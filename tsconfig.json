@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "lib": ["ES5", "ES6", "ES7", "DOM"],
+    "target": "ES5",
+    "module": "CommonJS",
+    // "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true
+  }
+}
