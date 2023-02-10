@@ -38,13 +38,21 @@ app.get("/api/products/:id", async (req, res) => {
 app.put("/api/products/:id", async (req, res) => {
   const product = await productRepository.findOneBy({ id: parseInt(req.params.id) });
   productRepository.merge(product, req.body);
-  const results = await productRepository.save(product);
-  return res.send(results);
+  const result = await productRepository.save(product);
+  return res.send(result);
 });
 
 // delete product
 app.delete("/api/products/:id", async (req, res) => {
   const result = await productRepository.delete({ id: parseInt(req.params.id) });
+  return res.send(result);
+});
+
+// add likes
+app.post("/api/products/:id/like", async (req, res) => {
+  const product = await productRepository.findOneBy({ id: parseInt(req.params.id) });
+  product.likes++;
+  const result = await productRepository.save(product);
   return res.send(result);
 });
 
