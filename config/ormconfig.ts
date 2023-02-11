@@ -1,3 +1,4 @@
+require("dotenv").config();
 import { DataSource } from "typeorm";
 
 const connectDB = new DataSource({
